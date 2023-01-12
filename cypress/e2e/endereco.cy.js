@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import enderecoPage from "../support/page-objects/endereco.page";
 
 describe('Funcionalidade Endereços - Faturamento e Entrega', () => {
 beforeEach(() => {
@@ -11,8 +12,8 @@ beforeEach(() => {
     
 });
 
-    it('Deve fazer cadastro de faturamento com sucesso', () => {
-        
-        //cadastro
+    it.only('Deve fazer cadastro de faturamento com sucesso', () => {
+        enderecoPage.editarEnderecoFaturamento('Fábio', 'Bruno', 'Google', 'Brasil', 'Av João', '238', 'Paranagua', 'São Paulo', '83209212', '419999955', 'teste@teste.com')
+        cy.get('.woocommerce-message').should('contain' , 'Endereço alterado com sucesso.')
     });
 });
